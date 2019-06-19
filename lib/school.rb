@@ -1,7 +1,6 @@
  require 'pry'
  class School
-  attr_accessor :name, :roster
-  attr_reader :school_name
+  attr_reader :roster
   
   def initialize(name)
     @name = name
@@ -13,22 +12,25 @@
   end
   
   def add_student(name, grade)
-    if @roster[grade]
-      @roster[grade].push(name)
-    else 
-      @roster[grade] = [name]
-    end
+    roster[grade] ||= []
+    roster[grade].push(name)
+    
+#    if @roster[grade]
+#       @roster[grade].push(name)
+#    else 
+#       @roster[grade] = [name]
+#    end
   end
   
   def grade(grade)
-    @roster[grade]
+    roster[grade]
   end
   
   def sort 
-   @roster.each do |grade, students|
-   students.sort!
-   end
-   end
-  
+    roster.each do |grade, students|
+    students.sort!
+    end
+  end
+
 end
 # code here!
