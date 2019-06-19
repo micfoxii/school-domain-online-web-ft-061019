@@ -14,6 +14,8 @@
   
   def add_student(name, grade)
     roster[grade] ||= []
+    roster[grade].push(name)
+    
 #    if @roster[grade]
 #       @roster[grade].push(name)
 #    else 
